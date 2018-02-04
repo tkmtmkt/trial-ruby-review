@@ -7,21 +7,16 @@ study-ruby
 オンライン環境でgemをインストールする。
 
 ```sh
-$ bundle init
-$ cat <<'EOS' >> Gemfile
-gem 'rake'
-gem 'pry'
-EOS
 $ bundle install --path vendor/bundle
 ```
 
-インストールされたgemをローカル用に保存する。
+インストールしたgemをローカル用に保存する。
 
 ```sh
 $ bundle package
 ```
 
-cacheに保存されたgemからgemをインストールする。
+cacheに保存したgemからgemをインストールする。
 
 ```sh
 $ bundle install --path vendor/bundle --local
@@ -30,5 +25,19 @@ $ bundle install --path vendor/bundle --local
 bundleで管理しているgemのコマンドスタブ作成
 
 ```sh
-$ bundle binstubs rake pry
+$ bundle binstubs rake pry review
+```
+
+実行
+----
+
+```sh
+$ bin/review-init my-book
+$ mv my-book/* .
+$ rmdir my-book
+```
+
+```sh
+$ bin/rake epub
+$ bin/rake pdf
 ```
